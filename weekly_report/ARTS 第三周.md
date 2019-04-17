@@ -33,7 +33,7 @@ class Solution {
 
 
 ## Review
-### [A Study List for Java Developers](https://medium.com/@jianbao.tao/a-study-list-for-java-developers-56a3f35527a5)
+### []()
 
 
 ### [Why Do Arrays Start With Index 0?](https://medium.com/@albertkoz/why-does-array-start-with-index-0-65ffc07cbce8)
