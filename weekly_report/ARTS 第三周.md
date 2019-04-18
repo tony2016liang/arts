@@ -33,7 +33,11 @@ class Solution {
 
 
 ## Review
-### []()
+### [the best programming language](http://coding-geek.com/the-best-programming-language/)
+关于什么开发语言最好，估计从有不同的开发语言存在，这种争论就没有停止过。  
+本文作者从一种幽默的角度切入，主要从实践上简单论述了自己关于这个问题的观点。其主旨意思就是说：根本不存在什么最好的开发语言，
+能把活干好的就是好的开发语言。  
+借用邓老的观点：不管黑猫白猫，抓到老鼠的就是好猫。
 
 
 ### [Why Do Arrays Start With Index 0?](https://medium.com/@albertkoz/why-does-array-start-with-index-0-65ffc07cbce8)
