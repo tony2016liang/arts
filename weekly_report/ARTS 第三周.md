@@ -40,14 +40,28 @@ class Solution {
 借用邓老的观点：不管黑猫白猫，抓到老鼠的就是好猫。
 
 
-### [Why Do Arrays Start With Index 0?](https://medium.com/@albertkoz/why-does-array-start-with-index-0-65ffc07cbce8)
-另外分享一个有趣的小知识点，关于为什么数组下标从0开始的问题，可以点开原文看下。
-
 ## Tip
-### 我不知道我有没有这方面的天赋，这条路我还是否能走下去？是否需要及时回头去寻找其他的路？
+### 日期时间转换
+日期时间转换的坑太多，虽也曾从总结的角度去梳理过，但一段时间过后，又会全然忘记。所以现在的模式就是碰到一个解决一个。 
+ 
+这次的场景是我们的消息要过一遍elasticSearch，消息中有一个字段updatedTime，插入es之前的格式是“yyyy-MM-dd HH:mm:ss”，
+插入es后会默认给转换成“yyyy-MM-dd'T'HH:mm:ss.SSS Z”格式，，然后再取出来的时候如果不加以处理的话就会报异常。  
 
+我们的处理方式如下：
 
+```
+public static LocalDateTime parse(String sourceDate) {
+        try {
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS Z");
+            Date date = format.parse(sourceDate.replace("Z", " UTC"));
+            return LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+```
 
 ## Share
-### [java int溢出总结](https://njucz.github.io/2017/08/16/java-int%E6%BA%A2%E5%87%BA%E6%80%BB%E7%BB%93/)
-
+### [java UTC时间格式化 时间带T Z](http://www.weizhixi.com/user/index/article/id/70.html)
+上面解决日期时间转换时看的一篇博文，分享一下
