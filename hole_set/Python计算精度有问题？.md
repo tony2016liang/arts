@@ -13,7 +13,11 @@ float，然后ceil取整后赋值给另一个daySort字段；如果是Y，则把
 
 部分的代码大概是下面这样的：
 ```
-
+days = days.split('+')[0]
+if 'Y' in days:
+    daySort = ceil(float(days.split('Y')[0]) * 365)
+elif 'D' in days:
+    daySort = ceil(float(days.split('D')[0]))
 ```
 
 ### 问题
@@ -56,9 +60,27 @@ int转换的是否就没问题；各种折腾。。。
 式，由原来的 “100D+2.5Y” 改成 “0.2740Y+2.5Y”，即所有的天都不要了，全部改成年的形式。
 改的过程知道的人不多，可以说是静悄悄地就进行了，直到一石激起千层浪。。。  
 准确地说，改这个数据他们并不是一点没考虑别的影响，比如我们的那个python脚本，对days的
-取值还是做了一定的调整的，将小于1年的值通过四舍五入换算成了天，代码如下：
+取值还是做了一定的调整的，将小于1年的值通过四舍五入换算成了天，代码大致如下：
 ```
+# 先按+分割，然后对分割后的字符串去掉最后的字母，并转换成float
+daysList = days.split('+')
+if len(daysList) > 1:
+    days_left = float(daysList[0][:-1])
+    days_right = float(daysList[-1][:-1])
+    
+    # 如果值小于1，则转换成天数（D），否则还是保留Y的方式，但小数位要调整成2位
+    if days_left < 1:
+        days_left_str = str(int(round(days_left * 365))) + 'D'
+    else:
+        if int(days_left) == days_left
+            days_left_str = str(int(days_left)) + daysList[0][-1]
+        else:
+            days_left_str = str(round(days_left, 2)) + daysList[0][-1]
+        
+    # 对days_right也如上进行同样的处理，得到days_right_str
 
+    days = days_left_str + '+' + days_right_str
+   
 ```
 但是上面那个问题的出现说明考虑的还是不够，至于还有没有其他问题，只能等bug自己暴露出来
 了，或者有人力的话把所有的相关代码都捋一遍。
