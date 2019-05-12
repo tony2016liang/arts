@@ -4,10 +4,160 @@
 > ### 有观点和思考的技术文章。（也就是 Algorithm、Review、Tip、Share 简称ARTS）  
 
 ## Algorithm
-### [LeetCode - 14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)
-判断一组字符串中最大的相同字符数，并打印出相同的字符。条件是从前往后数，且是连续的才算，这就大大减小了难度，所以仅是easy级别。
+### [LeetCode - 20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+给定一组带括号字符的字符串，判断括号的配对是否是有效的，规则有两个：
+1. 有开就要有闭
+2. 顺序一定要对
+另外要注意字符串中不能有除了6个括号（'(', ')', '{', '}', '[', ']'）之外的其他字符，否则为无效。
+另外空字符串视为有效。
 
-### 解题思路：
+### 解题思路
+利用栈的特性，分别通过对开括号入栈和闭括号出栈，然后进行比对的方式进行判断，另外需注意一些空指针异常，在这里是EmptyStackException
+
+#### 第一次提交的代码
+```
+class Solution {
+    public boolean isValid(String s) {
+        //判断字符串不为空的情况，如果为空则是true
+        if(!s.equals("")) {
+            //如果字符串的s长度为奇数，则为false
+            if(s.length() != 0 && s.length() % 2 != 0)  return false;
+            
+            //依次判断字符串中字符，为左括号则入栈，为右括号则出栈，并将其与出栈的字符比较
+            Stack<String> strStack = new Stack<>();
+            String chars = "(){}[]";
+            String[] strs = s.split("");
+            for(String str:strs) {
+                //如果输入的字符串中包含除6个括号以外的字符，也为false
+                if(!chars.contains(str)) return false;
+                
+                if("(".equals(str) || "[".equals(str) || "{".equals(str)) {
+                    strStack.push(str);
+                } else if (")".equals(str) || "]".equals(str) || "}".equals(str)) {
+                    if(!isMatch(strStack.pop(), str)) return false;
+                } else {
+                    continue;
+                }
+            }
+            return true;
+        } 
+        
+        return true;
+    }
+    
+    public boolean isMatch(String pre, String pos) {
+        if("(".equals(pre) && ")".equals(pos)) {
+            return true;
+        } else if("[".equals(pre) && "]".equals(pos)) {
+            return true;
+        } else if("{".equals(pre) && "}".equals(pos)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+               
+}
+```
+第一次的代码测试是失败的，因为没有考虑空栈的情况，比如如果一开始就传的是一个闭括号，那么栈里面是没有对应的开括号可以弹出的，所以这次
+在测试"){"时失败了
+
+#### 第二次提交的代码
+```
+class Solution {
+    public boolean isValid(String s) {
+        //判断字符串不为空的情况，如果为空则是true
+        if(!s.equals("")) {
+            //如果字符串的s长度为奇数，则为false
+            if(s.length() != 0 && s.length() % 2 != 0)  return false;
+            
+            //依次判断字符串中字符，为左括号则入栈，为右括号则出栈，并将其与出栈的字符比较
+            Stack<String> strStack = new Stack<>();
+            String chars = "(){}[]";
+            String[] strs = s.split("");
+            for(String str:strs) {
+                //如果输入的字符串中包含除6个括号以外的字符，也为false
+                if(!chars.contains(str)) return false;
+                
+                if("(".equals(str) || "[".equals(str) || "{".equals(str)) {
+                    strStack.push(str);
+                } else if (")".equals(str) || "]".equals(str) || "}".equals(str)) {
+                    //这里要对strStack判空，考虑输入为“){”的情况
+                    if(strStack.empty() || !isMatch(strStack.pop(), str)) return false;
+                } else {
+                    continue;
+                }
+            }
+            //如果此时strStack不为空，返回false，考虑“((”的情况
+            if(strStack.empty()) 
+                return true;
+            else
+                return false;
+            
+        } 
+        
+        return true;
+    }
+    
+    public boolean isMatch(String pre, String pos) {
+        if("(".equals(pre) && ")".equals(pos)) {
+            return true;
+        } else if("[".equals(pre) && "]".equals(pos)) {
+            return true;
+        } else if("{".equals(pre) && "}".equals(pos)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+               
+}
+```
+这次的代码逻辑没有问题了，但性能上有点差强人意，时间上消耗10ms，内存用了35.4M。  
+于是稍微简化了下代码，看性能上是否会有什么变化。
+
+#### 第三次提交的代码
+```
+class Solution {
+    public boolean isValid(String s) {
+        //判断字符串不为空的情况，如果为空则是true
+        if(!s.equals("")) {
+            //依次判断字符串中字符，为左括号则入栈，为右括号则出栈，并将其与出栈的字符比较
+            Stack<String> st = new Stack<>();
+            String s1 = "({[";
+            String s2 = ")}]";
+            String[] strs = s.split("");
+            for(String str:strs) {
+                //如果输入的字符串中包含除6个括号以外的字符，也为false
+                if(!(s1+s2).contains(str)) return false;
+                
+                if(s1.contains(str)) {
+                    st.push(str);
+                } else if (s2.contains(str)) {
+                    //这里要对st判空，考虑输入为“){”的情况
+                    if(st.empty() || !isMatch(st.pop()+str)) return false;
+                } else {
+                    continue;
+                }
+            }
+            //如果此时st不为空，返回false，考虑“((”的情况
+            if(st.empty()) 
+                return true;
+            else
+                return false;
+            
+        } 
+        
+        return true;
+    }
+    
+    public boolean isMatch(String str) {
+        return "()".equals(str) || "[]".equals(str) || "{}".equals(str);
+    }
+               
+}
+```
+这次把上次的48行代码简化到了38行，不过性能却更差了。。。好吧，至少证明了性能和代码的长短是没关系的，性能的提升之路还很长啊
 
 ## Review
 So You Want to be a Functional Programmer (Part 3 & Part 4) 。
