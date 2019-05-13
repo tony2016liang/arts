@@ -160,14 +160,15 @@ class Solution {
 这次把上次的48行代码简化到了38行，不过性能却更差了。。。好吧，至少证明了性能和代码的长短是没关系的，性能的提升之路还很长啊
 
 ## Review
-So You Want to be a Functional Programmer (Part 3 & Part 4) 。
-### [Part3](https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-3-1b0fd14eb1a7)
-1. 函数组合（Function Composition）：代码复用听着很棒，做起来却难。写得太具体，不易于后期的复用；写得太抽象，则连第一次的使用都会很困难。  
-在函数式编程中，函数就类似一个个乐高积木，单个的用于执行具体的任务，同时又可以组合他们在一起执行更复杂的任务。
-2. 无参编程（Point-Free）：不用指定冗余的参数，代码更简单，更简便（比如不用为了想出不同的变量名而发愁）；另外没有参数掺杂在
-逻辑中，代码也更易读，更易分析。
-3. 柯里化（Currying）：通过上述的函数组合和无参化可以将多个不同的简单函数组合在一起，并写成极简便的形式，但对于入参多于一个的函数这一方式
-却不太适用，由此引出了柯里化的概念。
+So You Want to be a Functional Programmer (Part 5 & Part 6) 。
+### [Part5](https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-5-c70adc9cf56a)
+1. 透明引用（Referential Transparency）：这里作者称之为逆向重构（Reverse Refactoring）。意思就是函数式编程中引用的函数完全可以用
+其原函数体代替，而不会产生任何副作用。这个特性比较有助于对函数作用的推理，尤其是递归函数。
+2. 执行顺序（Execution Order）：这一部分主要就是讲述函数式编程天生就是适合并发的，因为其每个函数的执行都是无副作用的，所以不用考虑函数
+执行过程中的状态问题，自然也就可以多个任务并行而不会产生不同任务执行结果不同的现象。
+3. 类型注解（Type Annotations）：Java类型安全但太麻烦，JavaScript使用灵活但安全方面又有点欠缺，所以Elm综合了两者的优点，方法就是通过
+在函数定义之前加多一行类型注解，对函数的入参和出参进行约束，尽管刚开始会在理解这些注解方面有些困扰，但其的确是解决了JS中的动态类型可能
+会产生的问题。
 
 ### [Part4](https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-2-7005682cec4a)
 1. 柯里函数（Curried Function）：每次只会处理一个参数的函数。
