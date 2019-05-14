@@ -170,18 +170,75 @@ So You Want to be a Functional Programmer (Part 5 & Part 6) 。
 在函数定义之前加多一行类型注解，对函数的入参和出参进行约束，尽管刚开始会在理解这些注解方面有些困扰，但其的确是解决了JS中的动态类型可能
 会产生的问题。
 
-### [Part4](https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-2-7005682cec4a)
-1. 柯里函数（Curried Function）：每次只会处理一个参数的函数。
-2. 柯里化和重构：通过将函数柯里化，可以很方便地将普通的函数重构成无参的简单形式，而充分利用柯里化的重要一点就是要设置好参数的顺序。
-3. 函数式编程常用函数：即Map、Filter、Reduce，其实就是将对列表的一些操作封装起来，使用时只需传入待处理的列表和需执行的操作函数即可，
-而不用每次都显式地去遍历列表。
+### [Part6](https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-6-db502830403)
+最后一部分主要就实际的使用推荐了一些库文件，比如JavaScript的Immutable.js和Ramda，另外是就Elm的学习提供了一些资源和学习方法，最后就
+将来的形式做了一些简单的预计。
 
 ## Tip
-spring boot针对多数据源的事务管理(以一个简单的示例进行说明)
+分享一个IntelliJ IDEA使用小技巧，debug模式仅显示需要观察的字段（可能许多人都已经知道了，但对于我来说还是有点小意外的，我相信应该还是有
+不少人不知道这一点的），以下为示例代码：
 
+```
+//测试类
+public class IdeaTest {
 
+    public static void main(String[] args) {
+        People pe = new People();
+        System.out.println(pe);
+        pe.refresh();
+        System.out.println(pe);
+    }
+
+}
+
+//用于展示的实体类
+class People {
+    private String name_one;
+    private String name_two;
+    private String name_three;
+    private String name_four;
+    private String name_five;
+    private String name_six;
+    private String name_seven;
+    private String name_eight;
+
+    public People () {
+        this.name_one = "one";
+        this.name_two = "two";
+        this.name_three = "three";
+        this.name_four = "four";
+        this.name_five = "five";
+        this.name_six = "six";
+        this.name_seven = "seven";
+        this.name_eight = "eight";
+    }
+
+    @Override
+    public String toString() {
+        return "people{" +
+                "name_one='" + name_one + '\'' +                
+                ", name_eight='" + name_eight + '\'' +
+                '}';
+    }
+
+    public void refresh() {
+        this.name_eight = "eight_refresh";
+    }
+
+}
+```
+
+附上debug时的截图（其中红色框中为idea自动展示的东西）
+![debug截图](../picture/idea%20debug小技巧.png)
+
+debug时经常需要排查对象的字段值变化情况，我以前的做法都是在console中把对象点开，然后一个个找需要查看的字段，费劲又耗时。而idea默认就
+是会展示当前对象中的字段，只是以前没注意观察过其中的规则，所以也就没利用起来。现在终于知道了，原来这个地方会展示什么字段，是根据对象的
+**toString()**方法来的，所以如果你只想跟踪一两个字段的值变化情况，那不妨重写一下**toString()**方法。这个技巧对于一些有很多字段的大对象来说，
+尤其有效。
 
 ## Share
-MySql批量插入数据及插入重复数据的处理
-### [Mysql中INSERT ... ON DUPLICATE KEY UPDATE的实践](https://www.jianshu.com/p/78ea17c6d190)
+
+这是在工作中遇到的一个问题，UnsupportedOperationException异常，看了下面的文章才知道原来通过Arrays.asList()生成的ArrayList对象并不是
+我们常用的那个java.util.ArrayList，而是Arrays类中的一个内部类，其并没有实现对集合进行修改的方法，又长见识了，详情请查看原文。
+### [Java容器——UnsupportedOperationException](https://my.oschina.net/itblog/blog/524792)
 
