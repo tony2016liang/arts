@@ -19,8 +19,6 @@
 ## Tip
 
 ## Share
-
-这是在工作中遇到的一个问题，UnsupportedOperationException异常，看了下面的文章才知道原来通过Arrays.asList()生成的ArrayList对象并不是
-我们常用的那个java.util.ArrayList，而是Arrays类中的一个内部类，其并没有实现对集合进行修改的方法，又长见识了，详情请查看原文。
-### [Java容器——UnsupportedOperationException](https://my.oschina.net/itblog/blog/524792)
+Spring Boot 2.0 新特性和发展方向，好多也没看完，在这里记录下
+### [Spring Boot 2.0 新特性和发展方向](http://blog.didispace.com/Spring-Boot-2-0-%E6%96%B0%E7%89%B9%E6%80%A7%E5%92%8C%E5%8F%91%E5%B1%95%E6%96%B9%E5%90%91/)
 
