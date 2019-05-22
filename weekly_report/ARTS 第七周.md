@@ -100,7 +100,16 @@ class Solution {
 
 ## Review
 
+### [Java: Equality vs Identity](https://medium.com/@NomadicAlex/java-equality-vs-identity-3b045c9f6c68)
+
+本周翻译一篇较简单的文章，讲述java中==和equals之前的区别。这个相信只要学过java的都会知道，只是平时实际工作中不一定能想到要用。  
+例如上面算法题的第一种方法，其实就是巧妙利用了引用特性，和==、equals之间的区别的原理都是相通的。
+
 ## Tip
+### HttpRequest传LocalDate参数技巧
+其实就是加一个注解@DateTimeFormat(iso = ISO.DATE)在形参的前面，这样在传参的过程中内部会根据注解进行一定的转化，否则就会报错。  
+实际这个技巧也是从一篇博文中看来的，原文如下，可自行查阅：
+[Parsing of LocalDate query parameters in Spring Boot](https://blog.codecentric.de/en/2017/08/parsing-of-localdate-query-parameters-in-spring-boot/)
 
 ## Share
 Spring Boot 2.0 新特性和发展方向，好多也没看完，在这里记录下
