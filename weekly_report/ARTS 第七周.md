@@ -102,7 +102,7 @@ class Solution {
 
 ### [Java: Equality vs Identity](https://medium.com/@NomadicAlex/java-equality-vs-identity-3b045c9f6c68)
 
-本周翻译一篇较简单的文章，讲述java中==和equals之前的区别。这个相信只要学过java的都会知道，只是平时实际工作中不一定能想到要用。  
+本周分享一篇较简单的文章，讲述java中==和equals之前的区别。这个相信只要学过java的都会知道，只是平时实际工作中不一定能想到要用。  
 例如上面算法题的第一种方法，其实就是巧妙利用了引用特性，和==、equals之间的区别的原理都是相通的。
 
 ## Tip
@@ -112,6 +112,7 @@ class Solution {
 [Parsing of LocalDate query parameters in Spring Boot](https://blog.codecentric.de/en/2017/08/parsing-of-localdate-query-parameters-in-spring-boot/)
 
 ## Share
-Spring Boot 2.0 新特性和发展方向，好多也没看完，在这里记录下
-### [Spring Boot 2.0 新特性和发展方向](http://blog.didispace.com/Spring-Boot-2-0-%E6%96%B0%E7%89%B9%E6%80%A7%E5%92%8C%E5%8F%91%E5%B1%95%E6%96%B9%E5%90%91/)
+最近工作中有需要用es，官方文档太博大精深，看懂看完会比较费劲，于是偷懒搜罗了下是否有简单些的中文总结性的博文，于是找到了下面这篇，准确的说应该是一个系列，  
+分享给大家，简单入门的话应该可以了
+### [ES系列十五、ES常用Java Client API](https://www.cnblogs.com/wangzhuxing/p/9609127.html)
 
