@@ -4,7 +4,7 @@
 > ### 有观点和思考的技术文章。（也就是 Algorithm、Review、Tip、Share 简称ARTS）  
 
 ## Algorithm
-### [LeetCode - 21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
+### [LeetCode - 26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 
 
 ### 解决方法一
@@ -27,10 +27,9 @@
 例如上面算法题的第一种方法，其实就是巧妙利用了引用特性，和==、equals之间的区别的原理都是相通的。
 
 ## Tip
-### HttpRequest传LocalDate参数技巧
-其实就是加一个注解@DateTimeFormat(iso = ISO.DATE)在形参的前面，这样在传参的过程中内部会根据注解进行一定的转化，否则就会报错。  
-实际这个技巧也是从一篇博文中看来的，原文如下，可自行查阅：
-[Parsing of LocalDate query parameters in Spring Boot](https://blog.codecentric.de/en/2017/08/parsing-of-localdate-query-parameters-in-spring-boot/)
+### Java 8 Stream 教程
+
+[Java 8 Stream 教程](https://www.jianshu.com/p/0c07597d8311)
 
 ## Share
 最近工作中有需要用es，官方文档太博大精深，看懂看完会比较费劲，于是偷懒搜罗了下是否有简单些的中文总结性的博文，于是找到了下面这篇，准确的说应该是一个系列，  
