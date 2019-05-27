@@ -32,7 +32,6 @@
 [Java 8 Stream 教程](https://www.jianshu.com/p/0c07597d8311)
 
 ## Share
-最近工作中有需要用es，官方文档太博大精深，看懂看完会比较费劲，于是偷懒搜罗了下是否有简单些的中文总结性的博文，于是找到了下面这篇，准确的说应该是一个系列，  
-分享给大家，简单入门的话应该可以了
-### [ES系列十五、ES常用Java Client API](https://www.cnblogs.com/wangzhuxing/p/9609127.html)
+如何判断int类型数值溢出，自己一直不是很熟，mark下
+### [Java整型变量溢出的判断方法](https://my.oschina.net/u/3284953/blog/1621263)
 
