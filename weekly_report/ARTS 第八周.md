@@ -21,10 +21,10 @@
 
 ## Review
 
-### [Java: Equality vs Identity](https://medium.com/@NomadicAlex/java-equality-vs-identity-3b045c9f6c68)
+### [How to handle very large numbers in Java without using java.math.BigInteger](https://stackoverflow.com/questions/5318068/how-to-handle-very-large-numbers-in-java-without-using-java-math-biginteger)
 
-本周分享一篇较简单的文章，讲述java中==和equals之前的区别。这个相信只要学过java的都会知道，只是平时实际工作中不一定能想到要用。  
-例如上面算法题的第一种方法，其实就是巧妙利用了引用特性，和==、equals之间的区别的原理都是相通的。
+此文来自于StackOverFlow上对一个问题的回答，其实原本作者是有贴心地准备另一个更具可读性的版本的，但这个[版本](https://paul-ebermann-blog.tumblr.com/post/6277562800/big-numbers-self-made-part-014-introduction)
+似乎目前只有第一页概述部分可以访问，其他部分都访问不到了，所以上面贴的是StackOverFlow原帖的地址。
 
 ## Tip
 ### Java 8 Stream 教程
