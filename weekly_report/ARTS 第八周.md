@@ -35,3 +35,6 @@
 如何判断int类型数值溢出，自己一直不是很熟，mark下
 ### [Java整型变量溢出的判断方法](https://my.oschina.net/u/3284953/blog/1621263)
 
+同时复习下原码/反码/补码的相关知识和背后的原理
+### [原码, 反码, 补码 详解](https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html)
+
