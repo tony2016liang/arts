@@ -32,26 +32,11 @@
 [Java 8 Stream 教程](https://www.jianshu.com/p/0c07597d8311)
 
 ## Share
-如何判断int类型数值溢出，自己一直不是很熟，mark下
-### [Java整型变量溢出的判断方法](https://my.oschina.net/u/3284953/blog/1621263)
+HBase是用java开发的，所以虽然不能用sql，但java api用起来也是比较方便的，但由于其架构的特殊性，有时即使会用了，在其逻辑模型的理解上，还是  
+有点拎不清，下面这篇文章就是从这些方面对HBase进行了阐述
+### [HBase 深入浅出](https://www.ibm.com/developerworks/cn/analytics/library/ba-cn-bigdata-hbase/index.html)
 
-同时复习下原码/反码/补码的相关知识和背后的原理
-### [原码, 反码, 补码 详解](https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html)
 
-BigInteger的常用方法
-### [Java中BigInteger方法总结](https://www.jianshu.com/p/8b89ab19db84)
-网上总结BigInteger用法的帖子很多，却都不太全面（自己也懒得总结(#-.-)），以上的帖子算是较为全面的了，另外补充几个我用到过而这里面没有的:
-
-1. valueOf构造
-直接new一个BigInteger当然是用String或byte[]作为入参比较方便，但如果手头正好有long或int值，用new就不方便了，这时就可以用valueOf
-```
-BigInteger hun = BigIteger.valueOf(100);
-```
-实际上，BigInteger.ONE, BigInteger.TWO 等就是调用内部的valueOf方法生成的
-
-2. 重载的toString
-BigInteger的toString()方法默认是返回十进制的数值转化成的字符串，但实际上toString还有个含一个入参的重载方法，传入的参数即代表输出的字符串
-要以几进制的方式来进行展现，如toString(16)即表示以16进制的模式进行展示。
 
 
 
