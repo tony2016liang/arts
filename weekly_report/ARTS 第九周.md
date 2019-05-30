@@ -36,6 +36,9 @@ HBase是用java开发的，所以虽然不能用sql，但java api用起来也是
 有点拎不清，下面这篇文章就是从这些方面对HBase进行了阐述
 ### [HBase 深入浅出](https://www.ibm.com/developerworks/cn/analytics/library/ba-cn-bigdata-hbase/index.html)
 
+springboot中RestTemplate的用法
+### [Springboot用RestTemplate发送http请求](https://www.jianshu.com/p/91158fb8860b)
+
 
 
 
