@@ -39,7 +39,8 @@ HBase是用java开发的，所以虽然不能用sql，但java api用起来也是
 springboot中RestTemplate的用法
 ### [Springboot用RestTemplate发送http请求](https://www.jianshu.com/p/91158fb8860b)
 
-
+JSONP跨域详解
+### [JSONP跨域详解](https://www.jianshu.com/p/e1e2920dac95)
 
 
 

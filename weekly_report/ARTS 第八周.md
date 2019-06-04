@@ -5,19 +5,71 @@
 
 ## Algorithm
 ### [LeetCode - 26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+> Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.
+> Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+Example :
+```
+Given nums = [1,1,2],
 
+Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.
 
-### 解决方法一
+It doesn't matter what you leave beyond the returned length.
 ```
 
-```
-这个方法的时间复杂度是1ms
+### 解题思路
+题目本身不难，但是因为有一个只能在数组内部调整的限制条件，所以就稍微有了点难度。主要考察的是用多个指针通过操控数组下标进而操控数值的能力。
+需要思维比较缜密。我的前两次提交就都是因为考虑不周，造成java.lang.ArrayIndexOutOfBoundsException异常，从而校验失败的。
 
-### 解决方法二
+### 以下为提交成功的代码
+```
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        } else if (nums.length == 1) {
+            return 1;
+        }
+        // 用于比较的变量，可视作基准值
+        int temp = nums[0];
+        // 用于指示不同的遍历层次，其中j表示数组整体移动到的下标，i表示已去重的数组部分的下标
+        int i, j; 
+        for (i=1,j=1; i<nums.length - 1 && j<nums.length - 1; ) {
+            // nums[i]表示待返回数组中未确定的一个位置，如果等于基准值，则需要继续遍历整个数组，寻找不同的值
+            if (nums[i] == temp) {
+               nums[i] = nums[j + 1];
+               j++;
+            } else {
+                // 考虑到{0,1,2,1,1,3,...}的情况，如果nums[i]不等于基准值，需要比较两者的大小
+                // 如果nums[i]小于基准值，表示待返回又可以向前推进一位
+                // 如果nums[i]不小于基准值，则表示还需继续向后遍历整体数组，以查看是否还有更大的数
+                if (temp < nums[i]) {
+                    temp = nums[i];
+                    i++;
+                } else {
+                    nums[i] = nums[j + 1];
+                    j++;
+                }
+
+            }
+        }
+        // 针对原始数组为{0, 0, 1, 1, 1, 2, 2, 3, 3, 4, 5, 6, 7, 8, 8}
+        // 去重后的数组可能会是{0, 1, 2, 3, 4, 5, 6, 7, 8, 8, 5, 6, 7, 8, 8}这种类型
+        // 此时的i=9,所以实际应该返回的数组长度为9
+        if (nums[i] == nums[i-1]) {
+            j = i;
+        } else {
+            j = i+1;
+        }
+
+        for (i=j;i<nums.length; i++) {
+            nums[i] = 0;
+        }
+
+        return j;
+    }
+}
 ```
 
-```
-这个方法就是利用的递归的思路，简单的几行代码就把问题解决了，而且时间复杂度是0ms，比第一个方法性能还要好。递归的思想还是值得好好研究研究的。
 
 ## Review
 
