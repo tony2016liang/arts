@@ -21,7 +21,7 @@
 
 ## Review
 
-### [How to handle very large numbers in Java without using java.math.BigInteger](https://stackoverflow.com/questions/5318068/how-to-handle-very-large-numbers-in-java-without-using-java-math-biginteger)
+### [What is Type-safe?](https://stackoverflow.com/questions/260626/what-is-type-safe)
 
 此文来自于StackOverFlow上对一个问题的回答，其实原本作者是有贴心地准备另一个更具可读性的版本的，但这个[版本](https://paul-ebermann-blog.tumblr.com/post/6277562800/big-numbers-self-made-part-014-introduction)
 似乎目前只有第一页概述部分可以访问，其他部分都访问不到了，所以上面贴的是StackOverFlow原帖的地址。
@@ -30,6 +30,8 @@
 ### java多线程编程： 主线程等待子线程
 
 [Java主线程等待子线程、线程池](https://blog.csdn.net/xiao__gui/article/details/9213413)
+
+[Java 位运算(移位、位与、或、异或、非）](https://blog.csdn.net/xiaochunyong/article/details/7748713)
 
 ## Share
 
